@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export PROJECT_DIR=/home/lsh/rk3566_multi_downloader
+export PROJECT_DIR=/home/linaro/rk3566_multi_downloader
 
 while [ TRUE ]
 do
@@ -8,4 +8,4 @@ do
 sleep 1
 done
 
-#/home/lsh/rk3566_multi_downloader/USB_DETECT_TEST/unmount.sh
+#/home/linaro/rk3566_multi_downloader/USB_DETECT_TEST/unmount.sh
