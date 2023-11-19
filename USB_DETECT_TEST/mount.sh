@@ -1,8 +1,10 @@
 #!/bin/bash
 
+USB_MEMORY_DIR=$PROJECT_DIR/USB_DETECT_TEST/usb_memory
+
 echo start_mount~
 echo device name : $1
-mkdir -p ./usb_memory
-chmod 777 ./usb_memory
-sudo mount -t vfat /dev/$1 ./usb_memory
+mkdir -p $USB_MEMORY_DIR
+chmod 777 $USB_MEMORY_DIR
+sudo mount -t vfat /dev/$1 $USB_MEMORY_DIR
 #sudo eject /dev/sda1
