@@ -30,8 +30,8 @@ then
   if [[ "${work}" == *failed!* ]]
     then
     echo "Test Device faild~!!"
-    echo "CMD ==>> sudo ./rkdeveloptool db ../MiniLoaderAll.bin"
-    sudo $RKDEVELOPTOOL db ${image_PATH}/MiniLoaderAll.bin
+    echo "CMD ==>> sudo ./rkdeveloptool db ./MiniLoaderAll.bin"
+    sudo $RKDEVELOPTOOL db ${TOOL_DIR}/MiniLoaderAll.bin
     sleep 5
   fi
   work=$(sudo $RKDEVELOPTOOL td);echo ""
