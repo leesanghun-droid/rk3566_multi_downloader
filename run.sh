@@ -8,5 +8,4 @@ do
 sleep 1
 done
 
-
 #/home/lsh/rk3566_multi_downloader/USB_DETECT_TEST/unmount.sh
