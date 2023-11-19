@@ -2,7 +2,6 @@
 
 USB_MEMORY_DIR=$PROJECT_DIR/USB_DETECT_TEST/usb_memory
 
-echo start_mount~
 echo device name : $1
 mkdir -p $USB_MEMORY_DIR
 chmod 777 $USB_MEMORY_DIR
