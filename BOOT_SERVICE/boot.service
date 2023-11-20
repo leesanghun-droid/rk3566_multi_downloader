@@ -3,11 +3,11 @@ Description=Test Program
 After=network.target
 
 [Service]
-ExecStart=/bin/python3 -u /home/lsh/rk3566_multi_downloader/PYTHON_CODE/main.py
-WorkingDirectory=/home/lsh/rk3566_multi_downloader/PYTHON_CODE
-User=lsh
-StandardOutput=file:/home/lsh/rk3566_multi_downloader/PYTHON_CODE/main.log
-StandardError=file:/home/lsh/rk3566_multi_downloader/PYTHON_CODE/main_error.log
+ExecStart=/bin/python3 -u /home/linaro/rk3566_multi_downloader/PYTHON_CODE/main.py
+WorkingDirectory=/home/linaro/rk3566_multi_downloader/PYTHON_CODE
+User=linaro
+StandardOutput=file:/home/linaro/rk3566_multi_downloader/PYTHON_CODE/main.log
+StandardError=file:/home/linaro/rk3566_multi_downloader/PYTHON_CODE/main_error.log
 Restart=on-failure
 
 [Install]
