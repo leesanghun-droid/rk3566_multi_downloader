@@ -16,9 +16,11 @@ while True:
         if key0==5:
             print("usb Copy Mode")
             uart_atmega.LED_SETTING(0)
-            uart_atmega.Download_Process_led_color_RED()
-            uart_atmega.Download_Process_led_bar(10)
-            time.sleep(10)
+            uart_atmega.Download_Process_led_color_YELLOW()
+            uart_atmega.Download_Process_led_bar(600)
+            download.scan_disk_and_mount()
+            download.updata_img_unpack()
+            download.disk_all_unmount()
             uart_atmega.LED_SETTING(0)
             key0=0
             

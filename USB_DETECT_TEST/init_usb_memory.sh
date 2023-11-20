@@ -1,5 +1,10 @@
 #!/bin/bash
 
+PROJECT_DIR=/home/linaro/rk3566_multi_downloader
+
+########################### mount start ######################################
+if [[ "$*" == *mount* ]]
+then
 usb_msg="USB Mass Storage device detected"
 dmesg_usb_result=$(dmesg | grep "USB Mass Storage device detected")
 USB_DETECT=FALSE
@@ -64,9 +69,24 @@ sudo dmesg -c
 
 echo -e "\e[47;1;32m mount start~ \e[0m"
 . $PROJECT_DIR/USB_DETECT_TEST/mount.sh $device
+fi
+fi
+########################### mount end ######################################
+
+
+########################### unpack start ######################################
+if [[ "$*" == *unpack* ]]
+then
 echo -e "\e[47;1;32m unpack start~ \e[0m"
 . $PROJECT_DIR/UNPACK_TOOL/aarch64/unpack_aarch64.sh update.img
+fi
+########################### unpack end ######################################
+
+########################### unmount start ######################################
+if [[ "$*" == *unmount* ]]
+then
 echo -e "\e[47;1;32m unmount start~ \e[0m"
 . $PROJECT_DIR/USB_DETECT_TEST/unmount.sh
 echo -e "\e[47;1;32m unmount done~ \e[0m"
 fi
+########################### unmount end ######################################
