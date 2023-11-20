@@ -1,0 +1,17 @@
+Traceback (most recent call last):
+  File "/home/lsh/.local/lib/python3.8/site-packages/serial/serialposix.py", line 322, in open
+    self.fd = os.open(self.portstr, os.O_RDWR | os.O_NOCTTY | os.O_NONBLOCK)
+FileNotFoundError: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/lsh/rk3566_multi_downloader/PYTHON_CODE/main.py", line 1, in <module>
+    import uart_atmega
+  File "/home/lsh/rk3566_multi_downloader/PYTHON_CODE/uart_atmega.py", line 39, in <module>
+    ser = serial.Serial('/dev/ttyACM0',9600)
+  File "/home/lsh/.local/lib/python3.8/site-packages/serial/serialutil.py", line 244, in __init__
+    self.open()
+  File "/home/lsh/.local/lib/python3.8/site-packages/serial/serialposix.py", line 325, in open
+    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
+serial.serialutil.SerialException: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
