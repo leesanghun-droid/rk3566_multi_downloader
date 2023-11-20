@@ -9,6 +9,7 @@
 #include "led_bar.h"
 #include "led_motion.h"
 #include "cmd.h"
+#include "process_bar.h"
 
 void setup() {
   Serial.begin(9600);
@@ -18,6 +19,7 @@ void setup() {
 
 void loop()
 {
+    PROCESS_BAR_LED();
     BOOT_LED();
     LED_BAR_RUN();
     CMD();

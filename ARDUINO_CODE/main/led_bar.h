@@ -126,7 +126,7 @@ void LED_SELECT(uint8_t SEL_NUM)
 void LED_BAR_RUN()
 {
   cycle_wait++;
-  if(cycle_wait>1000)
+  if(cycle_wait>300)
   {
     cycle_wait=0;
     LED_CHANGE=true;
