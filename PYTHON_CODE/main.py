@@ -1,6 +1,10 @@
-import serial
+import uart
+import time
 
-ser = serial.Serial('/dev/ttyACM0',9600)
-ser.write([0xAA])
-ser.write([0x55])
-ser.close()
+
+num=0
+while True:
+    num=num+1
+    result=uart.read_serial()
+    print(str(num)+" : "+result)
+
