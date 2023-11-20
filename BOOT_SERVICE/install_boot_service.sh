@@ -6,3 +6,4 @@ sudo systemctl daemon-reload
 sudo systemctl enable boot.service
 sudo systemctl start boot.service
 sudo systemctl status boot.service
+sudo reboot

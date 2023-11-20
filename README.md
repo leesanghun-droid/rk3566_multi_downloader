@@ -17,3 +17,5 @@ sudo chmod 777 /etc/resolv.conf; sudo sed "18 i\nameserver 8.8.8.8\\r\\nnameserv
 
 6. test_run ==> /bin/python3 /home/linaro/rk3566_multi_downloader/PYTHON_CODE/main.py
 
+7. background_run ==> /home/linaro/rk3566_multi_downloader/BOOT_SERVICE/install_boot_service.sh
+

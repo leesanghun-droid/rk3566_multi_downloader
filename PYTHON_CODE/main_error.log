@@ -1,0 +1,33 @@
+* daemon not running; starting now at tcp:5038
+* daemon started successfully
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+error: no devices found
+rm: cannot remove '/home/linaro/rk3566_multi_downloader/USB_DETECT_TEST/usb_memory/output': No such file or directory
+/home/linaro/rk3566_multi_downloader/UNPACK_TOOL/aarch64/unpack_aarch64.sh: line 21: pause: command not found
+/home/linaro/rk3566_multi_downloader/UNPACK_TOOL/aarch64/unpack_aarch64.sh: line 27: pause: command not found
+eject: /dev/sda1: not found mountpoint or device with the given name
+eject: /dev/sdc1: not found mountpoint or device with the given name
+eject: /dev/sdd1: not found mountpoint or device with the given name
+eject: /dev/sde1: not found mountpoint or device with the given name
+eject: /dev/sdf1: not found mountpoint or device with the given name
+eject: /dev/sdg1: not found mountpoint or device with the given name
+eject: /dev/sdh1: not found mountpoint or device with the given name
