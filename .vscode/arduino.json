@@ -1,0 +1,6 @@
+{
+    "board": "arduino:avr:uno",
+    "port": "/dev/ttyACM0",
+    "programmer": "arduino:arduinoisp",
+    "sketch": "ARDUINO_CODE/etc/LED_TEST/LED_TEST.ino"
+}

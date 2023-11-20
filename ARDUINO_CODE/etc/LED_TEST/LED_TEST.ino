@@ -4,6 +4,8 @@
 //#include <avr/io.h>
 //ubuntu_tip : sudo chmod a+rw /dev/ttyACM0
 
+
+
 #define data_pin 0
 #define enable_pin 1
 #define latch_pin 2
@@ -46,8 +48,14 @@ void setup() {
 
 void loop()
 {
+
+
+
     BOOT_LED();
     LED_BAR_RUN();
+
+
+
 }
 
 uint8_t LED_BAR_ARRAY[12][2]={
@@ -197,6 +205,8 @@ void HC595_latch()
 	_delay_loop_1(5);
 	LATCH_LOW;
 }
+
+
 int boot_cycle_wait=0;
 int boot_logic_cnt=0;
 void BOOT_LED()
