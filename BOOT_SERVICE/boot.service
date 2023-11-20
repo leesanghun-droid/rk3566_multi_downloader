@@ -1,0 +1,14 @@
+[Unit]
+Description=Test Program
+After=network.target
+
+[Service]
+ExecStart=/usr/bin/python3 -u main.py
+WorkingDirectory=/home/lsh/rk3566_multi_downloader/PYTHON_CODE
+StandardOutput=inherit
+StandardError=inherit
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
