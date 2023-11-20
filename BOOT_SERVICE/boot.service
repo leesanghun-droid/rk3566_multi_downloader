@@ -3,12 +3,12 @@ Description=Test Program
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/python3 -u main.py
+ExecStart=/bin/python3 -u /home/lsh/rk3566_multi_downloader/PYTHON_CODE/main.py
 WorkingDirectory=/home/lsh/rk3566_multi_downloader/PYTHON_CODE
-StandardOutput=inherit
-StandardError=inherit
-Restart=always
-User=root
+User=lsh
+StandardOutput=file:/home/lsh/rk3566_multi_downloader/PYTHON_CODE/main.log
+StandardError=file:/home/lsh/rk3566_multi_downloader/PYTHON_CODE/main_error.log
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
