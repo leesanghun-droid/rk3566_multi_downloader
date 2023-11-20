@@ -2,6 +2,7 @@
 //#include <stdio.h>
 //#include <util/delay.h>
 //#include <avr/io.h>
+//ubuntu_tip : sudo chmod a+rw /dev/ttyACM0
 
 #define data_pin 0
 #define enable_pin 1
