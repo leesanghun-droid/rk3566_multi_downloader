@@ -1,3 +1,4 @@
+import download
 import uart_atmega
 import time
 key0=0
@@ -26,8 +27,8 @@ while True:
             print("flash Download Mode")
             uart_atmega.LED_SETTING(0)
             uart_atmega.Download_Process_led_color_GREEN()
-            uart_atmega.Download_Process_led_bar(10)
-            time.sleep(10)
+            uart_atmega.Download_Process_led_bar(200) # set 10 => 10 second
+            download.Download_start()
             uart_atmega.LED_SETTING(0)
         key0=0
         uart_atmega.LED_SETTING(0)
