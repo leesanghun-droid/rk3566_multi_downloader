@@ -77,8 +77,14 @@ void CMD()
           }else if(c>=0x20 && c<=0x70){
             // FLASH PROCESS LED BAR
             PROCESS_DONE=false;
-            BAR_LED_COLOR=GREEN;
+            //BAR_LED_COLOR=GREEN;
             PROCESS_TIME=(c-0x20)*10;
+          }else if(c==0x71){
+            BAR_LED_COLOR=GREEN;
+          }else if(c==0x72){
+            BAR_LED_COLOR=RED;
+          }else if(c==0x73){
+            BAR_LED_COLOR=YELLOW;
           }
           mode=header1;
         break;

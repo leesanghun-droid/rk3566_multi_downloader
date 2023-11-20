@@ -14,15 +14,20 @@ while True:
             uart_atmega.LED_SETTING(key0)
         if key0==5:
             print("usb Copy Mode")
-            time.sleep(10)
-            key0=0
             uart_atmega.LED_SETTING(0)
+            uart_atmega.Download_Process_led_color_RED()
+            uart_atmega.Download_Process_led_bar(10)
+            time.sleep(10)
+            uart_atmega.LED_SETTING(0)
+            key0=0
+            
     else :
         if key0==1:
             print("flash Download Mode")
             uart_atmega.LED_SETTING(0)
-            uart_atmega.Flash_Download_Process_led_bar(300)
-            time.sleep(300)
+            uart_atmega.Download_Process_led_color_GREEN()
+            uart_atmega.Download_Process_led_bar(10)
+            time.sleep(10)
             uart_atmega.LED_SETTING(0)
         key0=0
         uart_atmega.LED_SETTING(0)
