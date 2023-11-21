@@ -1,32 +1,21 @@
-* daemon not running; starting now at tcp:5038
-* daemon started successfully
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-error: no devices found
-rm: cannot remove '/home/linaro/rk3566_multi_downloader/USB_DETECT_TEST/usb_memory/output': No such file or directory
-/home/linaro/rk3566_multi_downloader/UNPACK_TOOL/aarch64/unpack_aarch64.sh: line 21: pause: command not found
-/home/linaro/rk3566_multi_downloader/UNPACK_TOOL/aarch64/unpack_aarch64.sh: line 27: pause: command not found
-eject: /dev/sda1: not found mountpoint or device with the given name
-eject: /dev/sdc1: not found mountpoint or device with the given name
-eject: /dev/sdd1: not found mountpoint or device with the given name
+Traceback (most recent call last):
+  File "/home/linaro/.local/lib/python3.9/site-packages/serial/serialposix.py", line 322, in open
+    self.fd = os.open(self.portstr, os.O_RDWR | os.O_NOCTTY | os.O_NONBLOCK)
+FileNotFoundError: [Errno 2] No such file or directory: '/dev/ttyACM0'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/home/linaro/rk3566_multi_downloader/PYTHON_CODE/main.py", line 2, in <module>
+    import uart_atmega
+  File "/home/linaro/rk3566_multi_downloader/PYTHON_CODE/uart_atmega.py", line 39, in <module>
+    ser = serial.Serial('/dev/ttyACM0',9600)
+  File "/home/linaro/.local/lib/python3.9/site-packages/serial/serialutil.py", line 244, in __init__
+    self.open()
+  File "/home/linaro/.local/lib/python3.9/site-packages/serial/serialposix.py", line 325, in open
+    raise SerialException(msg.errno, "could not open port {}: {}".format(self._port, msg))
+serial.serialutil.SerialException: [Errno 2] could not open port /dev/ttyACM0: [Errno 2] No such file or directory: '/dev/ttyACM0'
+: not found mountpoint or device with the given name
 eject: /dev/sde1: not found mountpoint or device with the given name
 eject: /dev/sdf1: not found mountpoint or device with the given name
 eject: /dev/sdg1: not found mountpoint or device with the given name
