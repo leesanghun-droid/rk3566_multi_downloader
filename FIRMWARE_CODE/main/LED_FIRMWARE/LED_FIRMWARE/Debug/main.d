@@ -14,7 +14,7 @@ main.d main.o: .././main.c \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\common.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h \
- .././cmd.h .././board.h .././button.h .././led_bar.h \
+ .././cmd.h .././ex_power.h .././board.h .././button.h .././led_bar.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\util\delay_basic.h \
  c:\program\ files\microchip\xc8\v2.36\avr\avr\include\math.h \
@@ -51,6 +51,8 @@ c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\fuse.h:
 c:\program\ files\microchip\xc8\v2.36\avr\avr\include\avr\lock.h:
 
 .././cmd.h:
+
+.././ex_power.h:
 
 .././board.h:
 

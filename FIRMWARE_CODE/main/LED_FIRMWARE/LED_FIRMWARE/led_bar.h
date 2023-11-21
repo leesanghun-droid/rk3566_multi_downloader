@@ -46,10 +46,23 @@ void HC595_send_byte(uint8_t data)
 
 void HC595_init()
 {
-		DDRC  = 0b00000010;  //  only Enable pin write mode
-		PORTC = 0b00000010; //  disable device
-		DDRC  = 0b00001111;  //  data,enable,latch,clk pin write mode
-		PORTC = 0b00000010; //  initial state
+	#define data_pin 0
+	#define enable_pin 1
+	#define latch_pin 2
+	#define clk_pin 3
+	
+		DDRC |=  (1<<enable_pin);  //  only Enable pin write mode
+		PORTC|=  (1<<enable_pin); //disable device
+		
+		DDRC |=  (1<<data_pin);		//  data pin write mode
+		DDRC |=  (1<<enable_pin);	//  enable pin write mode
+		DDRC |=  (1<<latch_pin);	//  latch pin write mode
+		DDRC |=  (1<<clk_pin);		//  clk pin write mode
+		
+		PORTC|=  (1<<enable_pin);	//initial state
+		PORTC&=  ~(1<<data_pin);	//initial state
+		PORTC&=  ~(1<<latch_pin);	//initial state
+		PORTC&=  ~(1<<clk_pin);		//initial state
 		
 		int init_cnt=0;
 		for(init_cnt=0;init_cnt<3;init_cnt++)

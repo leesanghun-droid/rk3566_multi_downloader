@@ -8,6 +8,7 @@
 #define F_CPU 14745600UL
 #include <xc.h>
 #include "cmd.h"
+#include "ex_power.h"
 #include "board.h"
 #include "button.h"
 #include "led_bar.h"
@@ -16,6 +17,8 @@
 
 int main(void)
 {
+	  ex_power_init();
+	  ex_power_down();
 	  uart_init();
 	  led_bar_init();
 	  button_init();
