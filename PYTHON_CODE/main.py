@@ -19,7 +19,7 @@ while True:
             print("usb Copy Mode")
             uart_atmega.LED_SETTING(0)
             uart_atmega.Download_Process_led_color_YELLOW()
-            uart_atmega.Download_Process_led_bar(640)
+            uart_atmega.Download_Process_led_bar(240)
             download.scan_disk_and_mount()
             download.updata_img_unpack()
             download.disk_all_unmount()
