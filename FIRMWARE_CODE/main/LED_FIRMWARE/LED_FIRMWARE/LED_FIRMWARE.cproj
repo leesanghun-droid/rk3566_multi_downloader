@@ -116,6 +116,9 @@
     <Compile Include="cmd.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="ex_power.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="led_bar.h">
       <SubType>compile</SubType>
     </Compile>

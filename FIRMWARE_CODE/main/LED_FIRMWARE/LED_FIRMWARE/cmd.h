@@ -1,3 +1,9 @@
+extern void ex_power_up();
+extern void ex_power_down();
+extern void button_led_on();
+extern void button_led_off();
+
+
 extern uint8_t PROCESS_DONE;
 extern int BAR_LED_COLOR;
 extern int PROCESS_TIME;
@@ -101,6 +107,14 @@ void CMD()
             BAR_LED_COLOR=RED;
           }else if(c==0x73){
             BAR_LED_COLOR=YELLOW;
+          }else if(c==0x74){
+			ex_power_up();
+          }else if(c==0x75){
+			ex_power_down();
+          }else if(c==0x76){
+          button_led_on();
+          }else if(c==0x77){
+          button_led_off();
           }
           mode=header1;
         break;
