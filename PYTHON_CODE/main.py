@@ -19,7 +19,7 @@ while True:
             print("usb Copy Mode")
             uart_atmega.LED_SETTING(0)
             uart_atmega.Download_Process_led_color_YELLOW()
-            uart_atmega.Download_Process_led_bar(640)
+            uart_atmega.Download_Process_led_bar(240)
             download.scan_disk_and_mount()
             download.updata_img_unpack()
             download.disk_all_unmount()
@@ -32,10 +32,10 @@ while True:
             print("flash Download Mode")
             uart_atmega.BUTTON_LED_ON()
             uart_atmega.EX_POWER_ON()
-            time.sleep(20)
+            time.sleep(10)
             uart_atmega.LED_SETTING(0)
             uart_atmega.Download_Process_led_color_GREEN()
-            uart_atmega.Download_Process_led_bar(200) # set 10 => 10 second
+            uart_atmega.Download_Process_led_bar(160) # set 10 => 10 second
             download.Download_start()
             uart_atmega.EX_POWER_OFF()
             uart_atmega.BUTTON_LED_OFF()
