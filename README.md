@@ -19,3 +19,7 @@ sudo chmod 777 /etc/resolv.conf; sudo sed "18 i\nameserver 8.8.8.8\\r\\nnameserv
 
 7. background_run ==> /home/linaro/rk3566_multi_downloader/BOOT_SERVICE/install_boot_service.sh
 
+8.  git commit
+
+git config --global user.name lsh
+git config --global user.email lsh
