@@ -14,7 +14,7 @@
 #include "led_bar.h"
 #include "led_motion.h"
 #include "process_bar.h"
-
+//fuse bit LOW : D1, HIGH : EF
 int main(void)
 {
 	  ex_power_init();
