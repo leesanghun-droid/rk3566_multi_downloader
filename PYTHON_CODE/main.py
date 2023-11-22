@@ -24,6 +24,7 @@ while True:
             download.updata_img_unpack()
             download.disk_all_unmount()
             uart_atmega.LED_SETTING(0)
+            uart_atmega.Download_Process_led_bar(0)
             key0=0
             
     else :
@@ -39,6 +40,7 @@ while True:
             uart_atmega.EX_POWER_OFF()
             uart_atmega.BUTTON_LED_OFF()
             uart_atmega.LED_SETTING(0)
+            uart_atmega.Download_Process_led_bar(0)
         key0=0
         uart_atmega.LED_SETTING(0)
 
