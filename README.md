@@ -32,3 +32,5 @@ sudo chmod 777 /etc/resolv.conf; sudo sed "18 i\nameserver 8.8.8.8\\r\\nnameserv
 git config --global user.name lsh
 git config --global user.email lsh
 ##############################################################################
+
+9. sothing change main.py ==> ./service_apply.sh
