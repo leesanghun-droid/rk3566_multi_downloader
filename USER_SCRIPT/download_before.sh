@@ -8,12 +8,18 @@ LOG_DIR=$USER_SCRIPT_DIR/log
 ATCOM_DIR=$TOOL_DIR/atcom
 ADB=$TOOL_DIR/rk3566_adb
 
+echo "wait 15 sec"
+
 echo "ADB root"
 $ADB -d root
 echo "install atcom"
 $ADB -d push $ATCOM_DIR /data
 echo "atcom add Permission"
 $ADB -d shell chmod 777 /data/atcom
+
+echo "wait 10 sec"
+sleep 10
+
 echo "START LTE INIT..."
 echo "0. AT"
 echo "#RESULT############################"

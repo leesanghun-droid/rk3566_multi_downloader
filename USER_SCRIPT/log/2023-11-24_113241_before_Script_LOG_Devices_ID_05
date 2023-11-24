@@ -1,8 +1,10 @@
 download before script start~~
+wait 15 sec
 ADB root
 install atcom
 adb: error: failed to get feature set: no devices found
 atcom add Permission
+wait 10 sec
 START LTE INIT...
 0. AT
 #RESULT############################
