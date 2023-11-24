@@ -6,8 +6,8 @@ After=network.target
 ExecStart=/bin/python3 -u /home/linaro/rk3566_multi_downloader/PYTHON_CODE/main.py
 WorkingDirectory=/home/linaro/rk3566_multi_downloader/PYTHON_CODE
 User=linaro
-StandardOutput=file:/home/linaro/rk3566_multi_downloader/PYTHON_CODE/log/main.log
-StandardError=file:/home/linaro/rk3566_multi_downloader/PYTHON_CODE/log/main_error.log
+#StandardOutput=file:/home/linaro/rk3566_multi_downloader/PYTHON_CODE/log/main.log
+#StandardError=file:/home/linaro/rk3566_multi_downloader/PYTHON_CODE/log/main_error.log
 Restart=on-failure
 
 [Install]

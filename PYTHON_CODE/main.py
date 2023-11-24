@@ -1,8 +1,13 @@
+import subprocess
 import download
 import uart_atmega
 import time
+import flash_download_mode  as FD
+import usb_update_copy      as UC
+
 key0=0
 num=0
+
 while True:
     uart_atmega.EX_POWER_OFF()
     uart_atmega.BUTTON_LED_OFF()
@@ -13,34 +18,16 @@ while True:
     if result=="Press":
         key0=key0+1
         if key0>=1:
-            #print("LED" + str(key0))#LED(GREEN,key0)
-            uart_atmega.LED_SETTING(key0)
-        if key0==6:
-            print("usb Copy Mode")
-            uart_atmega.LED_SETTING(0)
-            uart_atmega.Download_Process_led_color_YELLOW()
-            uart_atmega.Download_Process_led_bar(240)
-            download.scan_disk_and_mount()
-            download.updata_img_unpack()
-            download.disk_all_unmount()
-            uart_atmega.LED_SETTING(0)
-            uart_atmega.Download_Process_led_bar(0)
-            key0=0
-            
+            uart_atmega.LED_SETTING(key0)     
     else :
         if key0==1:
-            print("flash Download Mode")
-            uart_atmega.BUTTON_LED_ON()
-            uart_atmega.EX_POWER_ON()
-            time.sleep(10)
-            uart_atmega.LED_SETTING(0)
-            uart_atmega.Download_Process_led_color_GREEN()
-            uart_atmega.Download_Process_led_bar(160) # set 10 => 10 second
-            download.Download_start()
-            uart_atmega.EX_POWER_OFF()
-            uart_atmega.BUTTON_LED_OFF()
-            uart_atmega.LED_SETTING(0)
-            uart_atmega.Download_Process_led_bar(0)
+            FD.Flash_download()
+        if key0==3:
+            UC.USB_Update_copy()
+        if key0==5:
+            UC.USB_Script_copy()
+            
+            
         key0=0
         uart_atmega.LED_SETTING(0)
 

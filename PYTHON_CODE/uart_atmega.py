@@ -67,5 +67,5 @@ ser.timeout = 1
 # ser.write([0xAA])
 # ser.write([0x55])
 # ser.write([0x01])
-time.sleep(4) # bootled delay
+#time.sleep(0) # bootled delay
 
