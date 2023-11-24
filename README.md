@@ -33,4 +33,10 @@ git config --global user.name lsh
 git config --global user.email lsh
 ##############################################################################
 
+9. add Devices_ID
+cd ~
+sudo nano device_Identity
+edit add "Devices_ID_*"
+
+
 9. sothing change main.py ==> ./service_apply.sh

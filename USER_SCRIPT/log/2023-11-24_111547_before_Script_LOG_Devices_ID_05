@@ -1,0 +1,15 @@
+download before script start~~
+ADB root
+install atcom
+adb: error: failed to get feature set: no devices found
+atcom add Permission
+START LTE INIT...
+0. AT
+#RESULT############################
+###################################
+
+###################################
+                                   
+          LTE SETUP                
+                                   
+###################################

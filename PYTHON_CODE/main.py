@@ -26,7 +26,8 @@ while True:
             UC.USB_Update_copy()
         if key0==5:
             UC.USB_Script_copy()
-            
+        if key0==7:
+            UC.USB_Log_copy()
             
         key0=0
         uart_atmega.LED_SETTING(0)
