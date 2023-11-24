@@ -9,7 +9,7 @@ def Flash_download():
     time.sleep(10)
     uart_atmega.LED_SETTING(0)
     uart_atmega.Download_Process_led_color_GREEN()
-    uart_atmega.Download_Process_led_bar(160) # set 10 => 10 second
+    uart_atmega.Download_Process_led_bar(170) # set 10 => 10 second
     download.Download_start()
     uart_atmega.EX_POWER_OFF()
     uart_atmega.BUTTON_LED_OFF()

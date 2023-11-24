@@ -2,7 +2,9 @@ import subprocess
 
 def Download_start():
     print("Download_start")
+    subprocess.run(["/home/linaro/rk3566_multi_downloader/USER_SCRIPT/download_before.sh"],shell=True)
     subprocess.run(["/home/linaro/rk3566_multi_downloader/DOWNLOAD_TOOL/download.sh"],shell=True)
+    subprocess.run(["/home/linaro/rk3566_multi_downloader/USER_SCRIPT/download_after.sh"],shell=True)
     
 def scan_disk_and_mount():
     subprocess.run(["/home/linaro/rk3566_multi_downloader/USB_DETECT_TEST/init_usb_memory.sh mount"],shell=True)
