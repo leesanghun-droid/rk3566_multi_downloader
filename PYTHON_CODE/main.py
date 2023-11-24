@@ -15,7 +15,7 @@ while True:
         if key0>=1:
             #print("LED" + str(key0))#LED(GREEN,key0)
             uart_atmega.LED_SETTING(key0)
-        if key0==5:
+        if key0==9:
             print("usb Copy Mode")
             uart_atmega.LED_SETTING(0)
             uart_atmega.Download_Process_led_color_YELLOW()
