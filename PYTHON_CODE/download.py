@@ -4,9 +4,16 @@ import Run_before_script
 
 def Download_start():
     print("Download_start")
-    Run_before_script.run_before_script()
-    subprocess.run(["/home/linaro/rk3566_multi_downloader/DOWNLOAD_TOOL/download.sh"],shell=True)
-    Run_after_script.run_after_script()
+    before_result=Run_before_script.run_before_script()
+    if before_result==0:
+        subprocess.run(["/home/linaro/rk3566_multi_downloader/DOWNLOAD_TOOL/download.sh"],shell=True)
+    else:
+        print("Run_before_script_Faild~")
+        
+    after_result=Run_after_script.run_after_script()
+    if before_result==1:
+        print("Run_after_script_Faild~")
+        
 def scan_disk_and_mount():
     subprocess.run(["/home/linaro/rk3566_multi_downloader/USB_DETECT_TEST/init_usb_memory.sh mount"],shell=True)
     

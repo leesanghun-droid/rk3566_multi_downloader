@@ -1,8 +1,11 @@
 import os
 import subprocess
 import datetime
+import uart_atmega
+import time
 
 def run_before_script():
+    
     subprocess.run(["sudo find /home/linaro/rk3566_multi_downloader/USER_SCRIPT/log -mtime +1 -delete"],shell=True)
 
     now = datetime.datetime.now().strftime('%Y-%m-%d_%H%M%S')
@@ -32,3 +35,19 @@ def run_before_script():
     f = open(LOG_DIR,'w')
     f.write(result_as_string)
     f.close()
+    
+    search_string="SCRIPT_ERROR"
+    
+    RETURN_FAILD=0
+    
+    if search_string in result_as_string:
+        uart_atmega.Download_Process_led_color_RED()
+        uart_atmega.Download_Process_led_bar(0)
+        time.sleep(60)
+        uart_atmega.LED_SETTING(0)
+        RETURN_FAILD=1
+        
+    return RETURN_FAILD
+    
+    
+    
