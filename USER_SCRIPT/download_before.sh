@@ -121,7 +121,7 @@ echo "###################################"
 echo "1. AT+CGDCONT?"
 echo "#RESULT############################"
 $ADB -d shell /data/atcom "AT+CGDCONT?"
-CGDCONT_RESULT=$($ADB -d shell /data/atcom "AT+CGDCONT?" | grep "1,\"IPV4V6\"" | wc -l)
+CGDCONT_RESULT=$($ADB -d shell /data/atcom "AT+CGDCONT?" | grep "1,\"IPV5V6\"" | wc -l)
 if [ ${CGDCONT_RESULT} != "1" ]; then echo SCRIPT_ERROR; fi
 echo "###################################"
 echo ""

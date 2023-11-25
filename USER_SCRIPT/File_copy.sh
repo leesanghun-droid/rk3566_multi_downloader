@@ -12,6 +12,7 @@ if [ -e $BEFORE_SCRIPT_FILE ]
 then
     echo "BEFORE_SCRIPT_FILE exist~"
     sudo cp $BEFORE_SCRIPT_FILE $USER_SCRIPT_DIR
+    sed -i 's/\r//' $USER_SCRIPT_DIR/download_before.sh 
 else
     echo "BEFORE_SCRIPT_FILE not exist~"
 fi
@@ -20,6 +21,7 @@ if [ -e $AFTER_SCRIPT_FILE ]
 then
     echo "AFTER_SCRIPT_FILE exist~"
     sudo cp $AFTER_SCRIPT_FILE $USER_SCRIPT_DIR
+    sed -i 's/\r//' $USER_SCRIPT_DIR/download_before.sh 
 else
     echo "AFTER_SCRIPT_FILE not exist~"
 fi
