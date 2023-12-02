@@ -23,5 +23,8 @@ def updata_img_unpack():
 def disk_all_unmount():
     subprocess.run(["/home/linaro/rk3566_multi_downloader/USB_DETECT_TEST/init_usb_memory.sh unmount"],shell=True)
     
+def disk_vfat_fomat():
+    subprocess.run(["/home/linaro/rk3566_multi_downloader/USB_DETECT_TEST/init_usb_memory.sh mount vfat_format"],shell=True)
+    
     
     #/home/linaro/rk3566_multi_downloader/USB_DETECT_TEST/init_usb_memory.sh unmount

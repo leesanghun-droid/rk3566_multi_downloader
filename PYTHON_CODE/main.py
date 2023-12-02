@@ -27,17 +27,23 @@ while True:
             uart_atmega.LED_SETTING(key0)     
     else :
         if key0==1:
+            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
             FD.Flash_download()
         if key0==3:
+            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
             UC.USB_Update_copy()
         if key0==4:
             print("LOG DELETE")
+            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
         if key0==5:
+            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
             UC.USB_Script_copy()
         if key0==7:
+            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
             UC.USB_Log_copy()
         if key0==12:
             print("USB VFAT FOMAT")
+            UC.USB_vfat_format()
             
         key0=0
         uart_atmega.LED_SETTING(0)

@@ -42,3 +42,14 @@ def USB_Log_copy():
     download.disk_all_unmount()
     uart_atmega.LED_SETTING(0)
     uart_atmega.BUTTON_LED_OFF()
+
+def USB_vfat_format():
+    print("USB_vfat_format mode")
+    uart_atmega.BUTTON_LED_ON()
+    uart_atmega.LED_SETTING(12)
+    uart_atmega.Download_Process_led_color_YELLOW()
+    uart_atmega.Download_Process_led_bar(12)
+    download.disk_vfat_fomat()
+    time.sleep(12)
+    uart_atmega.LED_SETTING(0)
+    uart_atmega.BUTTON_LED_OFF()

@@ -5,8 +5,8 @@ PROJECT_DIR=/home/linaro/rk3566_multi_downloader
 ########################### mount start ######################################
 if [[ "$*" == *mount* ]]
 then
-usb_msg="USB Mass Storage device detected"
-dmesg_usb_result=$(dmesg | grep "USB Mass Storage device detected")
+usb_msg="New USB device found"
+dmesg_usb_result=$(dmesg | grep "New USB device found")
 USB_DETECT=FALSE
 if [[ "$dmesg_usb_result" == *"$usb_msg"* ]]; then USB_DETECT=TRUE; else USB_DETECT=FALSE; fi;
 #echo FIND_USB : $USB_DETECT
@@ -67,12 +67,26 @@ device="${dmesg_device_result:(-4)}"
 echo $device
 sudo dmesg -c
 
+
+if [[ "$*" == *vfat_format* ]]
+then
+echo -e "\e[47;1;32m vfat format start~ \e[0m"
+. $PROJECT_DIR/USB_DETECT_TEST/vfat_format.sh $device
+echo -e "\e[47;1;32m vfat format end~ \e[0m"
+else
 echo -e "\e[47;1;32m mount start~ \e[0m"
 . $PROJECT_DIR/USB_DETECT_TEST/mount.sh $device
+fi
+
+
+
 fi
 fi
 ########################### mount end ######################################
 
+########################### vat format start ######################################
+
+########################### vat format end ######################################
 
 ########################### unpack start ######################################
 if [[ "$*" == *unpack* ]]
