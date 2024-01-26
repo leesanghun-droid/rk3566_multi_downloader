@@ -10,9 +10,9 @@ def Download_start():
     else:
         print("Run_before_script_Faild~")
         
-    after_result=Run_after_script.run_after_script()
-    if before_result==1:
-        print("Run_after_script_Faild~")
+    #after_result=Run_after_script.run_after_script()
+    #if before_result==1:
+    #    print("Run_after_script_Faild~")
         
 def scan_disk_and_mount():
     subprocess.run(["/home/linaro/rk3566_multi_downloader/USB_DETECT_TEST/init_usb_memory.sh mount"],shell=True)
