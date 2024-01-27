@@ -6,7 +6,7 @@ import flash_download_mode  as FD
 import usb_update_copy      as UC
 
 delete_log=0
-key0=0
+cmd=0
 num=0
 
 while True:
@@ -22,30 +22,20 @@ while True:
         subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
         delete_log=0
     if result=="Press":
-        key0=key0+1
-        if key0>=1:
-            uart_atmega.LED_SETTING(key0)     
+        cmd=cmd+1
+        if cmd>=1:
+            uart_atmega.LED_SETTING(cmd)     
     else :
-        if key0==1:
-            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
+        if cmd==1:
             FD.Flash_download()
-        if key0==3:
-            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
+        if cmd==3:
             UC.USB_Update_copy()
-        if key0==4:
-            print("LOG DELETE")
-            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
-        if key0==5:
-            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
+        if cmd==5:
             UC.USB_Script_copy()
-        if key0==7:
-            subprocess.run(["sudo rm -rf /var/log/*"],shell=True)
-            UC.USB_Log_copy()
-        if key0==12:
+        if cmd==12:
             print("USB VFAT FOMAT")
             UC.USB_vfat_format()
-            
-        key0=0
+        cmd=0
         uart_atmega.LED_SETTING(0)
 
 
