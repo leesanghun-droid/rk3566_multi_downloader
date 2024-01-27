@@ -62,7 +62,7 @@ def read_serial():
         return res.decode()[:len(res)-2]
 
 ser = serial.Serial('/dev/ttyS4',9600)
-ser.timeout = 1
+ser.timeout = 0
 # time.sleep(4) # bootled delay
 # ser.write([0xAA])
 # ser.write([0x55])

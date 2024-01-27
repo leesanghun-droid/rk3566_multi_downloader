@@ -40,3 +40,10 @@ edit add "Devices_ID_*"
 
 
 9. sothing change main.py ==> ./service_apply.sh
+
+10. pip install ttkbootstrap
+
+
+11. sudo dpkg -i python3-tk_3.9.2-1_arm64.deb 
+
+=> sudo apt --fix-broken install
