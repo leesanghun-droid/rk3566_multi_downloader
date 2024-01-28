@@ -49,6 +49,13 @@ def led(mode,t):
 
 thread2 = threading.Thread(target = led, args = (1,10))
 
+def busy_check():
+    while True:
+        if(thread2!=None and thread2.is_alive()):
+            pass
+        else:
+            break
+
 def LED_PROGRESS_CLEAR(mode):
     if mode ==2 :
         Progress2_value.set(0)
@@ -62,6 +69,8 @@ def LED_PROGRESS_CLEAR(mode):
     # if mode ==5 :
     #     Progress5_value.set(0)
     #     p5.update()
+
+
 
 def LED_PROGRESS(mode,t):
     global thread2
@@ -109,7 +118,7 @@ def downloader():
                 LED_PROGRESS_CLEAR(2)
                 EX_POWER=0
             if AUTO_MODE==1:
-                time.sleep(10)
+                busy_check()
                 cmd=3
 ##################################################################################################
 ######################################### 3. 다운로드 ############################################
@@ -118,7 +127,7 @@ def downloader():
             download.Download_start()
             
             if AUTO_MODE==1:
-                time.sleep(40)
+                busy_check()
                 cmd=4
 ##################################################################################################
 ######################################### 4. 통신셋팅 ############################################
@@ -127,7 +136,7 @@ def downloader():
             com.com_setup()
 
             if AUTO_MODE==1:
-                time.sleep(10)
+                busy_check()
                 cmd=5
 ##################################################################################################
 ######################################### 5. 통신상태 ############################################
