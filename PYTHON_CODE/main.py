@@ -39,13 +39,13 @@ def led(mode,t):
             Progress4_value.set(progress)
             p4.update()
             time.sleep(0.1)
-    if mode ==5 :
-        step = 105/t
-        for i in range(t*10):
-            progress=int((i/10)*step)
-            Progress5_value.set(progress)
-            p5.update()
-            time.sleep(0.1)
+    # if mode ==5 :
+    #     step = 105/t
+    #     for i in range(t*10):
+    #         progress=int((i/10)*step)
+    #         Progress5_value.set(progress)
+    #         p5.update()
+    #         time.sleep(0.1)
 
 thread2 = threading.Thread(target = led, args = (1,10))
 
@@ -59,9 +59,9 @@ def LED_PROGRESS_CLEAR(mode):
     if mode ==4 :
         Progress4_value.set(0)
         p4.update()
-    if mode ==5 :
-        Progress5_value.set(0)
-        p5.update()
+    # if mode ==5 :
+    #     Progress5_value.set(0)
+    #     p5.update()
 
 def LED_PROGRESS(mode,t):
     global thread2
@@ -71,9 +71,11 @@ def LED_PROGRESS(mode,t):
         thread2 = threading.Thread(target = led, args = (mode,t))
         thread2.start()
 
+AUTO_MODE=0
 cmd=0
 EX_POWER=0
 def downloader():
+    global AUTO_MODE
     global cmd
     global EX_POWER
     result=uart_atmega.read_serial()
@@ -87,6 +89,12 @@ def downloader():
         # LED_PROGRESS(1,13)
         # time.sleep(13)
     else:
+######################################### 1. 자동설치 ############################################
+        if cmd==1:
+            AUTO_MODE=1
+            cmd=2
+##################################################################################################
+
 ######################################### 2. 전원켜기 ############################################
         if cmd==2:
             if EX_POWER==0:
@@ -100,21 +108,43 @@ def downloader():
                 uart_atmega.BUTTON_LED_OFF()
                 LED_PROGRESS_CLEAR(2)
                 EX_POWER=0
+            if AUTO_MODE==1:
+                time.sleep(10)
+                cmd=3
 ##################################################################################################
 ######################################### 3. 다운로드 ############################################
         if cmd==3:
-            LED_PROGRESS(3,200)
+            LED_PROGRESS(3,230)
             download.Download_start()
+            
+            if AUTO_MODE==1:
+                time.sleep(40)
+                cmd=4
 ##################################################################################################
 ######################################### 4. 통신셋팅 ############################################
         if cmd==4:
             LED_PROGRESS(4,70)
             com.com_setup()
+
+            if AUTO_MODE==1:
+                time.sleep(10)
+                cmd=5
 ##################################################################################################
 ######################################### 5. 통신상태 ############################################
         if cmd==5:
-            LED_PROGRESS(5,5)
+            # LED_PROGRESS(5,5)
+
             com.atcom_setup()
+
+            AT_CGDCONT_result=com.AT_CGDCONT()
+            AT_QIMSCFG_result=com.AT_QIMSCFG()
+            AT_QCFG_NWSCANMODE_result=com.AT_QCFG_NWSCANMODE()
+            AT_QCFG_lte_bandprior_result=com.AT_QCFG_lte_bandprior()
+
+            label1.config(text=AT_CGDCONT_result)
+            label2.config(text=AT_QIMSCFG_result)
+            label3.config(text=AT_QCFG_NWSCANMODE_result)
+            label4.config(text=AT_QCFG_lte_bandprior_result)
             pass
 ##################################################################################################
         cmd=0
@@ -146,6 +176,9 @@ root.config(cursor="none")
 my_style = ttk.Style()
 my_style.configure("light.Link.TButton",font=("Helvetica",30))
 
+my_style2 = ttk.Style()
+my_style2.configure("primary.Link.TButton",font=("Helvetica",20))
+
 # sep1 = ttk.Separator(root,bootstyle="light")
 # sep1.place(x=0, y=10, relwidth=1)
 
@@ -165,6 +198,37 @@ sep2.place(x=0, y=410, relwidth=1)
 # sep2.place(x=0, y=510, relwidth=1)
 
 
+
+############################################### COM LABEL 1 ##############################################
+
+label1=ttk.Label(root,  text="NONE1",
+                        style='primary.Link.TButton',
+                        width=40,
+                        anchor="w")
+label1.place(x=280, y=420)
+############################################### COM LABEL 2 ##############################################
+
+label2=ttk.Label(root,  text="NONE2",
+                        style='primary.Link.TButton',
+                        width=40,
+                        anchor="w")
+label2.place(x=280, y=455)
+############################################### COM LABEL 3 ##############################################
+
+label3=ttk.Label(root,  text="NONE3",
+                        style='primary.Link.TButton',
+                        width=40,
+                        anchor="w")
+label3.place(x=280, y=490)
+############################################### COM LABEL 4 ##############################################
+
+label4=ttk.Label(root,  text="NONE4",
+                        style='primary.Link.TButton',
+                        width=40,
+                        anchor="w")
+label4.place(x=280, y=525)
+############################################################################################################
+
 ############################################### 프로그레스바 2 ##############################################
 Progress2_value = ttk.DoubleVar()
 p2 = ttk.Progressbar(root,maximum=100,length=450,variable=Progress2_value,bootstyle="success")
@@ -179,17 +243,22 @@ Progress4_value = ttk.DoubleVar()
 p4 = ttk.Progressbar(root,maximum=100,length=450,variable=Progress4_value,bootstyle="success")
 p4.place(x=300, y=342, height=35)
 ############################################################################################################
-############################################### 프로그레스바 4 ##############################################
-Progress5_value = ttk.DoubleVar()
-p5 = ttk.Progressbar(root,maximum=100,length=100,variable=Progress5_value,bootstyle="success")
-p5.place(x=300, y=442, height=35)
-############################################################################################################
+# ############################################### 프로그레스바 5 ##############################################
+# Progress5_value = ttk.DoubleVar()
+# p5 = ttk.Progressbar(root,maximum=100,length=100,variable=Progress5_value,bootstyle="success")
+# p5.place(x=300, y=442, height=35)
+# ############################################################################################################
 
 
 ############################################### 버튼 1 #####################################################
 b1 = ttk.Button(root, text='1.자동설치',
                 style='light.Link.TButton',
                 width=10)
+def b1_bt_pressed():
+    global cmd
+    print("b1_bt_pressed")
+    cmd=1
+b1["command"] = b1_bt_pressed
 b1.place(x=10, y=23)
 ############################################### 버튼 2 #####################################################
 b2 = ttk.Button(root, text='2.전원켜기',
