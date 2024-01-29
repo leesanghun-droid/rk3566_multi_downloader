@@ -308,7 +308,7 @@ def timer_1s():
 
 root = ttk.Window(themename="darkly")
 root.title("HYODOL 다운로더")
-root.geometry("1050x600+0-0")
+root.geometry("1024x600+0+0")
 root.config(cursor="none")
 
 my_style = ttk.Style()
