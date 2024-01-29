@@ -140,3 +140,14 @@ QCFG_RESULT=$($ADB -d shell /data/atcom "AT+QCFG=\'NWSCANMODE\'" | grep "\"nwsca
 if [ ${QCFG_RESULT} != "1" ]; then echo SCRIPT_ERROR; fi
 echo "###################################"
 echo ""
+
+echo "4. AT+QCFG=\"lte/bandprior\""
+echo "#RESULT############################"
+$ADB -d shell /data/atcom "AT+QCFG=\'lte/bandprior\'"
+QCFG_RESULT=$($ADB -d shell /data/atcom "AT+QCFG=\'lte/bandprior\'" | grep "\"lte/bandprior\",05,03" | wc -l)
+if [ ${QCFG_RESULT} != "1" ]; then echo SCRIPT_ERROR; fi
+echo "###################################"
+echo ""
+
+echo "fix 2024.01.29.12.44"
+echo ""
