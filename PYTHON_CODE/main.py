@@ -109,10 +109,16 @@ def downloader():
             p3.update()
             Progress4_value.set(0)
             p4.update()
-            label1.config(text='NONE1')
-            label2.config(text='NONE2')
-            label3.config(text='NONE3')
-            label4.config(text='NONE4')
+            label1.config(text='')
+            label2.config(text='')
+            label3.config(text='')
+            label4.config(text='')
+
+            label1_check.config(text='',style='light.Link.TButton')
+            label2_check.config(text='',style='light.Link.TButton')
+            label3_check.config(text='',style='light.Link.TButton')
+            label4_check.config(text='',style='light.Link.TButton')
+
             pass
             ###############
 ##################################################################################################
@@ -205,9 +211,44 @@ def downloader():
             search_string = "1,\"IPV4V6\""
 
             if search_string in main_string:
-                print("검색 문자열이 메인 문자열에 포함되어 있습니다.")
+                label1_check.config(style='success.TButton')
+                label1_check.config(text='OK')
             else:
-                print("검색 문자열이 메인 문자열에 포함되어 있지 않습니다.")
+                label1_check.config(style='danger.TButton')
+                label1_check.config(text='ERROR')
+################################################################################
+############################ AT_QIMSCFG_result check ##########################
+            main_string = AT_QIMSCFG_result
+            search_string = "\"ims\",2"
+
+            if search_string in main_string:
+                label2_check.config(style='success.TButton')
+                label2_check.config(text='OK')
+            else:
+                label2_check.config(style='danger.TButton')
+                label2_check.config(text='ERROR')
+################################################################################
+############################ AT_QCFG_NWSCANMODE_result check ##########################
+            main_string = AT_QCFG_NWSCANMODE_result
+            search_string = "\"nwscanmode\",3"
+
+            if search_string in main_string:
+                label3_check.config(style='success.TButton')
+                label3_check.config(text='OK')
+            else:
+                label3_check.config(style='danger.TButton')
+                label3_check.config(text='ERROR')
+################################################################################
+############################ AT_QCFG_lte_bandprior_result check ##########################
+            main_string = AT_QCFG_lte_bandprior_result
+            search_string = "\"lte/bandprior\",05,03"
+
+            if search_string in main_string:
+                label4_check.config(style='success.TButton')
+                label4_check.config(text='OK')
+            else:
+                label4_check.config(style='danger.TButton')
+                label4_check.config(text='ERROR')
 ################################################################################
 
 
@@ -233,6 +274,15 @@ def downloader():
             time.sleep(5)
             download.disk_all_unmount()
             print("script change end")
+            busy_check()
+##################################################################################################
+######################################### 8. usb 포멧 ############################################
+        if cmd==8:
+            print("usb format start")
+            LED_PROGRESS(3,10)
+            download.disk_vfat_fomat()
+            time.sleep(5)
+            print("usb format end")
             busy_check()
 ##################################################################################################
         AUTO_MODE=0
@@ -271,7 +321,13 @@ my_style3 = ttk.Style()
 my_style3.configure("info.Outline.TButton",font=("Helvetica",20))
 
 my_style4 = ttk.Style()
-my_style4.configure("success.inverse.TButton",font=("Helvetica",20))
+my_style4.configure("success.TButton",font=("Helvetica",20))
+
+my_style5 = ttk.Style()
+my_style5.configure("danger.TButton",font=("Helvetica",20))
+
+my_style6 = ttk.Style()
+my_style6.configure("light.Link.TButton",font=("Helvetica",20))
 
 # sep1 = ttk.Separator(root,bootstyle="light")
 # sep1.place(x=0, y=10, relwidth=1)
@@ -295,37 +351,52 @@ sep2.place(x=0, y=410, relwidth=1)
 
 ############################################### COM LABEL 1 ##############################################
 
-label1=ttk.Label(root,  text="NONE1",
+label1=ttk.Label(root,  text="",
                         style='primary.Link.TButton',
                         width=40,
                         anchor="w")
-label1.place(x=320, y=420)
-label1_check=ttk.Label(root,  text="OK",
-                        style='primary.Link.TButton',
-                        width=5,
-                        anchor="w")
-label1_check.place(x=280, y=420)
+label1.place(x=410, y=420)
+label1_check=ttk.Label(root,  text="",
+                        style='light.Link.TButton',
+                        width=6,
+                        anchor="center")
+label1_check.place(x=280, y=420,height=40)
 ############################################### COM LABEL 2 ##############################################
 
-label2=ttk.Label(root,  text="NONE2",
+label2=ttk.Label(root,  text="",
                         style='primary.Link.TButton',
                         width=40,
                         anchor="w")
-label2.place(x=320, y=455)
+label2.place(x=410, y=455)
+label2_check=ttk.Label(root,  text="",
+                        style='light.Link.TButton',
+                        width=6,
+                        anchor="center")
+label2_check.place(x=280, y=455,height=40)
 ############################################### COM LABEL 3 ##############################################
 
-label3=ttk.Label(root,  text="NONE3",
+label3=ttk.Label(root,  text="",
                         style='primary.Link.TButton',
                         width=40,
                         anchor="w")
-label3.place(x=320, y=490)
+label3.place(x=410, y=490)
+label3_check=ttk.Label(root,  text="",
+                        style='light.Link.TButton',
+                        width=6,
+                        anchor="center")
+label3_check.place(x=280, y=490,height=40)
 ############################################### COM LABEL 4 ##############################################
 
-label4=ttk.Label(root,  text="NONE4",
+label4=ttk.Label(root,  text="",
                         style='primary.Link.TButton',
                         width=40,
                         anchor="w")
-label4.place(x=320, y=525)
+label4.place(x=410, y=525)
+label4_check=ttk.Label(root,  text="",
+                        style='light.Link.TButton',
+                        width=6,
+                        anchor="center")
+label4_check.place(x=280, y=525,height=40)
 ############################################################################################################
 
 ############################################### 프로그레스바 2 ##############################################
@@ -427,6 +498,18 @@ def b7_bt_pressed():
 
 b7["command"] = b7_bt_pressed
 b7.place(x=600, y=18, height =80)
+############################################################################################################
+############################################### 버튼 8 #####################################################
+b8 = ttk.Button(root, text='USB 포멧',
+                style='info.Outline.TButton',
+                width=10)
+def b8_bt_pressed():
+    global cmd
+    print("b8_bt_pressed")
+    cmd=8
+
+b8["command"] = b8_bt_pressed
+b8.place(x=400, y=18, height =80)
 ############################################################################################################
 
 timer_1s()
