@@ -1,5 +1,5 @@
 # import subprocess
-
+import os
 import download
 import com
 import uart_atmega
@@ -15,6 +15,7 @@ from ttkbootstrap.constants import *
 
 uart_atmega.EX_POWER_OFF()
 uart_atmega.BUTTON_LED_OFF()
+os.environ['DISPLAY']=':0.0'
 
 
 def led(mode,t):
@@ -156,6 +157,16 @@ def downloader():
             label4.config(text=AT_QCFG_lte_bandprior_result)
             pass
 ##################################################################################################
+######################################### 6. 펌웨어 교체 ############################################
+        if cmd==6:
+            print("changw firm start")
+            LED_PROGRESS(3,250)
+            download.scan_disk_and_mount()
+            download.updata_img_unpack()
+            download.disk_all_unmount()
+            print("changw firm end")
+            pass
+##################################################################################################
         cmd=0
         uart_atmega.LED_SETTING(cmd)
 
@@ -187,6 +198,9 @@ my_style.configure("light.Link.TButton",font=("Helvetica",30))
 
 my_style2 = ttk.Style()
 my_style2.configure("primary.Link.TButton",font=("Helvetica",20))
+
+my_style3 = ttk.Style()
+my_style3.configure("warning.TButton",font=("Helvetica",20))
 
 # sep1 = ttk.Separator(root,bootstyle="light")
 # sep1.place(x=0, y=10, relwidth=1)
@@ -313,6 +327,18 @@ def b5_bt_pressed():
 
 b5["command"] = b5_bt_pressed
 b5.place(x=10, y=425)
+############################################################################################################
+############################################### 버튼 6 #####################################################
+b6 = ttk.Button(root, text='펌웨어 교체',
+                style='warning.TButton',
+                width=10)
+def b6_bt_pressed():
+    global cmd
+    print("b6_bt_pressed")
+    cmd=6
+
+b6["command"] = b6_bt_pressed
+b6.place(x=800, y=18, height =80)
 ############################################################################################################
 
 timer_1s()

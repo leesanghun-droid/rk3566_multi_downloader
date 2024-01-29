@@ -47,3 +47,8 @@ edit add "Devices_ID_*"
 11. sudo dpkg -i python3-tk_3.9.2-1_arm64.deb 
 
 => sudo apt --fix-broken install
+
+12. error check
+=> journalctl -u boot
+
+13. lxterminal -e /bin/python3 /home/linaro/rk3566_multi_downloader/PYTHON_CODE/main.py

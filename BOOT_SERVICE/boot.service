@@ -3,7 +3,7 @@ Description=Test Program
 After=network.target
 
 [Service]
-ExecStart=/bin/python3 -u /home/linaro/rk3566_multi_downloader/PYTHON_CODE/main.py
+ExecStart=/bin/python3 /home/linaro/rk3566_multi_downloader/PYTHON_CODE/main.py
 WorkingDirectory=/home/linaro/rk3566_multi_downloader/PYTHON_CODE
 User=linaro
 Restart=on-failure
